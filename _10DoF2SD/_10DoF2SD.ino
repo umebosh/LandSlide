@@ -17,7 +17,7 @@ const int chipSelect = 4;
 int times = 0; //経過時間を記録
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(115200);
   Serial.print("Initializing SD card...");
   pinMode(10,OUTPUT);
   if(!SD.begin(chipSelect)){
