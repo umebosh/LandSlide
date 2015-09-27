@@ -1,8 +1,4 @@
-#include <SD.h>
-// ** MOSI - pin 11
-// ** MISO - pin 12
-// ** CLK  - pin 13
-// ** CS   - pin 10
+//10DoFからとった本番用のデータをUSBシリアル軽油で流すだけ
 
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
@@ -17,20 +13,10 @@ Adafruit_LSM303_Mag_Unified   mag   = Adafruit_LSM303_Mag_Unified(30302);
 Adafruit_BMP085_Unified       bmp   = Adafruit_BMP085_Unified(18001);
 Adafruit_L3GD20_Unified       gyro  = Adafruit_L3GD20_Unified(20);
 
-const int chipSelect = 10;
 int times = 0; //経過時間を記録
 
 void setup(){
   Serial.begin(115200);
-  Serial.print("Initializing SD card...");
-  pinMode(10,OUTPUT);
-  if(!SD.begin(chipSelect)){
-      Serial.println("Card failed, or not present");
-      return;
-  }
-  Serial.println("card initialized.");
-  
-  Serial.println("");
 
   Serial.print("Initializing sensors...");
     /* Initialise the sensors */
@@ -114,20 +100,7 @@ void loop(){
   }
   
 
-  
-  
-  //SDカードへの書き込み処理
-  File logData = SD.open("logData.csv", FILE_WRITE);
-  
-  //ファイルが存在すれば書き込み
-  if(logData){
-    logData.println(data);
-    Serial.println(data);
-    logData.close ();
-  }
-  else{
-        Serial.println("error opening logData.csv");
-  }
+  Serial.println(data);
   
   delay(1000);
   times += 1;
