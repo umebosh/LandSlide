@@ -10,6 +10,7 @@ float temp = 27.80;
 
 int nums[3]; //1つ目が正負のフラグ0なら正，1なら負，2つ目が整数値，3つ目が少数値
 
+//小数点100の位がintに変えた時にずれるバグが有る (int)24.00 => 23
 String  getHexString(float num){
     int sign, intg, dcml;
 
@@ -56,7 +57,7 @@ String  getHexString(float num){
     /* Serial.println(dcml); */
 
     //Twe-Liteのアスキーモードの都合上UpperCaseで返す
-    return sSign + "  " + sIntg + "  " + sDcml;
+    return sSign + "" + sIntg + "" + sDcml;
 }
 
 void setup(){
