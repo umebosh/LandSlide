@@ -55,5 +55,10 @@ if __name__ == "__main__":
 
     ser = serial.Serial(Variables.PORT, Variables.BAUD_RATE)  # ポート名とボーレートを指定してシリアルポートをオープン
     print('Open Serial Port :%s %d' % (Variables.PORT, Variables.BAUD_RATE))
-    ser.close()
-    print('Close Serial Port')
+    try:
+        while True:
+            line = ser.readline()
+            print(line)
+    except:
+        ser.close()
+        print('Close Serial Port')
