@@ -1,4 +1,4 @@
-int time = 3877;
+int time = 38;
 float ax = -0.55, ay = 0.08, az = 10.24;
 float mx = -9.73, my = 3.55, mz = -86.02;
 float gx = 0.04,  gy = 0.20, gz = 0.03;
@@ -41,7 +41,7 @@ String  getHexString(float num){
     sIntg.toUpperCase();
 
     //小数部分の判定
-    float temp2 = ((float)num - temp)*100;   //小数部分の取得numのキャストでエラーでそう
+    float temp2 = (abs(num) - temp)*100;   //小数部分の取得numのキャストでエラーでそう
                                              //*100で小数点以下2桁を取り出す
     dcml = abs((int)temp2);  //小数点以下切り捨て
     String sDcml = String(dcml, HEX);
@@ -50,11 +50,6 @@ String  getHexString(float num){
         sDcml = "0" + sDcml;
     }
     sDcml.toUpperCase();
-
-    /* Serial.print("temp2:"); */
-    /* Serial.println(temp2); */
-    /* Serial.print("dcml:"); */
-    /* Serial.println(dcml); */
 
     //Twe-Liteのアスキーモードの都合上UpperCaseで返す
     return sSign + "" + sIntg + "" + sDcml;
