@@ -13,7 +13,7 @@ Adafruit_LSM303_Mag_Unified   mag   = Adafruit_LSM303_Mag_Unified(30302);
 Adafruit_BMP085_Unified       bmp   = Adafruit_BMP085_Unified(18001);
 Adafruit_L3GD20_Unified       gyro  = Adafruit_L3GD20_Unified(20);
 
-const int chipSelect = 4;
+const int chipSelect = 10;
 int times = 0; //経過時間を記録
 
 void setup(){
