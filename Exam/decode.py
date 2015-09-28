@@ -9,20 +9,26 @@ hexnum = ""
 print(len(li))
 for i in range(len(li)):
     if (i)%6 != 0:
-        print(i)
         data += li[i]
     else:
         if i != 0:
             datalist.append(data)
         data = li[i]
-        print(i)
 
-# datalist.append(data)
-
-# for i in range(len(datalist)):
-#     li = list(datalist[i])
-#     for j in range(6):
-#         if j == 0:
-#             if data
-#             hexnum +=
+# datalist.append(data) ##データが3バイト未満の最後のところ
 print(datalist)
+
+numlist = []
+for i in range(len(datalist)):
+    n = datalist[i]
+    tmp = [int(n[0], 16), int(n[1:4], 16), int(n[4:6], 16)]
+
+    result = float(tmp[1] + tmp[2] * 0.01)
+
+    if tmp[0] == 1:
+        result *= -1
+
+    numlist.append(result)
+
+print(numlist)
+
