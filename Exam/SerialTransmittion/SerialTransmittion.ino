@@ -57,58 +57,48 @@ void setup(){
 
 void loop(){
   String data = "";      //データ保存用の変数
-  String asii = ":00A012FF ";    //書式モードのアスキーモードで親に送るコマンド
+  String asii = ":00A012FF";    //書式モードのアスキーモードで親に送るコマンド
 
   //経過時間を記録
   sensors_event_t event;
   data += times;
   data += ",";
   asii += getHexString((float)times);
-  asii += ",";
 
   //加速度を記録
   accel.getEvent(&event);
   data += event.acceleration.x;
   asii += getHexString((float)event.acceleration.x);
-  asii += ",";
   data += ",";
   data += event.acceleration.y;
   asii += getHexString((float)event.acceleration.y);
-  asii += ",";
   data += ",";
   data += event.acceleration.z;
   asii += getHexString((float)event.acceleration.z);
-  asii += ",";
   data += ",";
 
   //地磁気を記録
   mag.getEvent(&event);
   data += event.magnetic.x;
   asii += getHexString((float)event.magnetic.x);
-  asii += ",";
   data += ",";
   data += event.magnetic.y;
   asii += getHexString((float)event.magnetic.y);
-  asii += ",";
   data += ",";
   data += event.magnetic.z;
   asii += getHexString((float)event.magnetic.z);
-  asii += ",";
   data += ",";
 
   //ジャイロを記録
   gyro.getEvent(&event);
   data += event.gyro.x;
   asii += getHexString((float)event.gyro.x);
-  asii += ",";
   data += ",";
   data += event.gyro.y;
   asii += getHexString((float)event.gyro.y);
-  asii += ",";
   data += ",";
   data += event.gyro.z;
   asii += getHexString((float)event.gyro.z);
-  asii += ",";
   data += ",";
 
   //気圧と気温を記録
@@ -117,13 +107,12 @@ void loop(){
   {
     data += event.pressure;
     asii += getHexString((float)event.pressure);
-    asii += ",";
     data += ",";
 
     float temperature;
     bmp.getTemperature(&temperature);
     data += temperature;
-    asii += getHexString((float)event.temperature);
+    asii += getHexString((float)temperature);
     asii += "X";
   }
 

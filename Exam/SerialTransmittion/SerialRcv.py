@@ -58,6 +58,7 @@ if __name__ == "__main__":
     try:
         while True:
             line = ser.readline()
+            # print(type(line))
             print(line)
     except:
         ser.close()
