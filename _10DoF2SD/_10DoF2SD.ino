@@ -126,7 +126,7 @@ void loop(){
     float temperature;
     bmp.getTemperature(&temperature);
     data += temperature;
-    asii += getHexString((float)event.temperature);
+    asii += getHexString((float)temperature);
     asii += "X";
   }
 
@@ -134,7 +134,7 @@ void loop(){
 
 
   //SDカードへの書き込み処理
-  File logData = SD.open("LOGDATA.CSV", FILE_WRITE);
+  File logData = SD.open("logData.csv", FILE_WRITE);
 
   //ファイルが存在すれば書き込み
   if(logData){
@@ -143,7 +143,7 @@ void loop(){
     logData.close ();
   }
   else{
-        Serial.println("error opening LOGDATA.CSV");
+        Serial.println("error opening logData.csv");
   }
 
   delay(1000);
