@@ -139,12 +139,14 @@ void loop(){
   //ファイルが存在すれば書き込み
   if(logData){
     logData.println(asii);
-    Serial.println(asii);
     logData.close ();
   }
-  else{
-        Serial.println("error opening logData.csv");
-  }
+//  else{
+////        Serial.println("error opening logData.csv");
+//        Serial.println(asii);
+//
+//  }
+  Serial.println(asii);
 
   delay(1000);
   times += 1;

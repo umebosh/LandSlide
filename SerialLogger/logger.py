@@ -4,6 +4,8 @@ import serial
 import os
 import sys
 import datetime
+# import numpy as np
+# from matplotlib import pyplot as plt
 
 module_path = os.path.abspath(os.path.dirname(__file__)) + "/.."  # モジュールを読み込むためのを指定
 sys.path.append(module_path)  # これでモジュールの読み込みができるようになる
@@ -11,6 +13,16 @@ from Dialog.serial_open_dialog import Dialog
 from SerialLogger.decode2 import *
 
 dialog = Dialog
+
+# t = np.zeros(100)
+# y = np.zeros(100)
+#
+# plt.ion()
+# plt.figure()
+# li, = plt.plot(t, y)
+# plt.ylim(0, 5)
+# plt.xlabel("time[s]")
+# plt.ylabel("Voltage[V]")
 
 
 def get_time():  # 時間を返す
@@ -51,9 +63,19 @@ if __name__ == "__main__":
             decoded_file.close()
             print(decoded_data_str)
 
+            # t = np.append(t, decoded_data[3])
+            # t = np.delete(t, 0)
+            # y = np.append(y, decoded_data[2])
+            # y = np.delete(y, 0)
+            #
+            # li.set_xdata(t)
+            # li.set_ydata(y)
+            # plt.xlim(min(t), max(t))
+            # plt.draw()
+
             print('---------------------------')
             # print(line)
             # print(total_decode(line))
     except:
-        ser.close()
+        # ser.close()
         print('Close Serial Port')
