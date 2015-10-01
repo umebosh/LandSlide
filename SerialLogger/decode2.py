@@ -13,8 +13,12 @@ s = ':01A0128100ECCAFFFFFFFF930024000900100027100023000A00100724102A2D1061180000
 # s = ejection_data_part(s)
 #  実際はバイトで来るからそこの変換の各必要がある？
 def ejection_data_part(args):
+    print('---------in decode2.ejection_data_part---------')
+    print(args)
+    print('-----------------------------------------------')
     args = args[1:-2]
-    if type(args) == bytes: args.decode('utf-8')
+    if type(args) == bytes:
+        args.decode('utf-8')
     return args
 
 
