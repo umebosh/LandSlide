@@ -51,8 +51,13 @@ def decode_data(args):
     return num
 
 
+# 無線で送られてきたデータを渡すとデコードし終えたリストが帰ってくる
+def total_decode(args):
+    return divide_data(ejection_data_part(args))
+
+
 if __name__ == "__main__":
-    data = s
-    data = ejection_data_part(s)
-    data_list = divide_data(data)
-    print(data_list)
+    # data = s
+    # data = ejection_data_part(s)
+    # data_list = divide_data(data)
+    print(total_decode(s))

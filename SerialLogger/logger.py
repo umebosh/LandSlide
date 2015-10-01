@@ -8,6 +8,7 @@ import datetime
 module_path = os.path.abspath(os.path.dirname(__file__)) + "/.."  # モジュールを読み込むためのを指定
 sys.path.append(module_path)  # これでモジュールの読み込みができるようになる
 from Dialog.serial_open_dialog import Dialog
+from SerialLogger.decode2 import *
 
 dialog = Dialog
 
@@ -24,5 +25,6 @@ if __name__ == "__main__":
 
     ser = serial.Serial(dialog.Variables.PORT, dialog.Variables.BAUD_RATE)  # ポート名とボーレートを指定してシリアルポートをオープン
     print('Open Serial Port :%s %d' % (dialog.Variables.PORT, dialog.Variables.BAUD_RATE))
+
     ser.close()
     print('Close Serial Port')
