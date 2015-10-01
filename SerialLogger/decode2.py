@@ -6,19 +6,22 @@ __author__ = 'nonakanaoki'
 # つぎにそれを6バイトづつに切り出す
 # 規則に従って復号化
 
-s = ':01A0128100ECCAFFFFFFFF930024000900100027100023000A00100724102A2D10611800000300001100000103F16203F162FA'
+# s = ':01A0128100ECCAFFFFFFFF930024000900100027100023000A00100724102A2D10611800000300001100000103F16203F162FA'
+s = b':01A0128100ECCAFFFFFFFF90002400D90010001710013C000A08100012001700103C0000000300001200000103E852001B1400\r\n'
 
 
 # 送られてきた生データの最初の：とチェックサムを排除したstrを返す関数
 # s = ejection_data_part(s)
 #  実際はバイトで来るからそこの変換の各必要がある？
 def ejection_data_part(args):
-    print('---------in decode2.ejection_data_part---------')
-    print(args)
-    print('-----------------------------------------------')
-    args = args[1:-2]
+    # print('---------in decode2.ejection_data_part---------')
+    # print(args)
+    args = args[1:-4]
     if type(args) == bytes:
-        args.decode('utf-8')
+        args = args.decode('utf-8')
+    # print(args)
+    # print('-----------------------------------------------')
+
     return args
 
 
@@ -30,7 +33,8 @@ def divide_data(args):
     # LQI    ： 12バイト目
     # データ長 ： 13,14バイト目
     li = []
-    if args[26:28] == '24':  # バイト数 これが２４なら正しいデータが来てる
+    print(len(args))
+    if args[26:28] == '24' and len(args) == 100:  # バイト数 これが２４なら正しいデータが来てる
         li.append(int(args[:2], 16))  # 送信元
         li.append(int(args[22:24], 16))  # LQI 16進数から１０進数に直しておく
 
@@ -60,8 +64,8 @@ def total_decode(args):
     return divide_data(ejection_data_part(args))
 
 
-if __name__ == "__main__":
-    # data = s
-    # data = ejection_data_part(s)
-    # data_list = divide_data(data)
-    print(total_decode(s))
+# if __name__ == "__main__":
+#     # data = s
+#     # data = ejection_data_part(s)
+#     # data_list = divide_data(data)
+#     print(total_decode(s))

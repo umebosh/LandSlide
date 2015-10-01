@@ -35,25 +35,25 @@ if __name__ == "__main__":
             line = ser.readline()
 
             raw_data = [now_time, line]  # センサーから送られてきたままのアスキーコマンドデータに受け取った時刻を追加したもの
-            raw_data_str = ','.join(map(str, raw_data))
+            raw_data_str = ','.join(map(str, raw_data)) + '\n'
             raw_data_path = '../Log/Raw/' + file_date + '-raw.csv'
             raw_file = open(raw_data_path, 'a')
             raw_file.write(raw_data_str)
             raw_file.close()
+            print(raw_data_str)
 
             decoded_data = total_decode(line)  # センサーから受け取ったデータをエンコードして頭に受け取った時刻をつけてる
             decoded_data.insert(0, now_time)
-            decoded_data_str = ','.join(map(str, decoded_data))
+            decoded_data_str = ','.join(map(str, decoded_data)) + '\n'
             decoded_data_path = '../Log/' + file_date + '.csv'
             decoded_file = open(decoded_data_path, 'a')
             decoded_file.write(decoded_data_str)
             decoded_file.close()
+            print(decoded_data_str)
 
             print('---------------------------')
-            print(line)
-            print(total_decode(line))
-
-
+            # print(line)
+            # print(total_decode(line))
     except:
         ser.close()
         print('Close Serial Port')
