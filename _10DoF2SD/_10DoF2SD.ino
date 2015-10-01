@@ -150,15 +150,16 @@ void loop(){
   times += 1;
 }
 
+//------------------------------------------------------------//
 String  getHexString(float num){
     int sign, intg, dcml;
 
     //正負の判定
     if(num < 0){
-                sign = 1;
-            }else{
-                            sign = 0;
-                        }
+        sign = 1;
+    }else{
+        sign = 0;
+    }
     String sSign = String(sign, HEX);
     sSign.toUpperCase();
 

@@ -14,7 +14,7 @@ class Dialog:
         print('Select your tocostick')
         i = 0
         for file in files:
-            if file.find('usb') != -1:
+            if file.find('usb') != -1 or file.find('USB') != -1:
                 usbport.append(file)
                 message = "[" + str(i) + "]" + file
                 print(message)
