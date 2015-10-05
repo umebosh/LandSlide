@@ -33,7 +33,7 @@ def divide_data(args):
     # LQI    ： 12バイト目
     # データ長 ： 13,14バイト目
     li = []
-    print(len(args))
+    # print(len(args))
     if args[26:28] == '24' and len(args) == 100:  # バイト数 これが２４なら正しいデータが来てる
         li.append(int(args[:2], 16))  # 送信元
         li.append(int(args[22:24], 16))  # LQI 16進数から１０進数に直しておく

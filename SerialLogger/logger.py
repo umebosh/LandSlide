@@ -63,19 +63,9 @@ if __name__ == "__main__":
             decoded_file.close()
             print(decoded_data_str)
 
-            # t = np.append(t, decoded_data[3])
-            # t = np.delete(t, 0)
-            # y = np.append(y, decoded_data[2])
-            # y = np.delete(y, 0)
-            #
-            # li.set_xdata(t)
-            # li.set_ydata(y)
-            # plt.xlim(min(t), max(t))
-            # plt.draw()
-
             print('---------------------------')
             # print(line)
             # print(total_decode(line))
     except:
-        # ser.close()
+        ser.close()
         print('Close Serial Port')

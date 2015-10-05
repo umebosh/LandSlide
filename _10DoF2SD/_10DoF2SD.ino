@@ -141,11 +141,11 @@ void loop(){
     logData.println(asii);
     logData.close ();
   }
-//  else{
-////        Serial.println("error opening logData.csv");
+  else{
+        Serial.println("error opening logData.csv");
 //        Serial.println(asii);
-//
-//  }
+
+  }
   Serial.println(asii);
 
   delay(1000);
