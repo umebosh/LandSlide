@@ -1,9 +1,12 @@
 # coding: UTF-8
 import os
 
+# ログデータをセンサー毎に分割するスクリプト
+# 何故かExam/にログが吐かれるバグが有る
+
 __author__ = 'nonakanaoki'
 
-path = '/Users/nonakanaoki/Desktop/CPS/LandSlide/Log/2015-10-2-9-52-33.csv'
+path = '/Users/nonakanaoki/Desktop/CPS/LandSlide/2015-10-2-11-0-54.csv'
 f = open(path)
 data = f.readlines()
 f.close()
@@ -23,7 +26,13 @@ def print_data(data):
 
 if __name__ == '__main__':
     # print(type(data))
+    print(len(data))
+    i = 0
     for line in data:
+        if i % 1000 == 0:
+            print(100 * i / len(data))
+        i += 1
+
         first = line.find(',')
         logger_no = line[first + 1:first + 2]  # 子機番号の切り出し
 

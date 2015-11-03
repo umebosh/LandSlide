@@ -52,7 +52,7 @@ if __name__ == "__main__":
             raw_file = open(raw_data_path, 'a')
             raw_file.write(raw_data_str)
             raw_file.close()
-            print(raw_data_str)
+            # print(raw_data_str)
 
             decoded_data = total_decode(line)  # センサーから受け取ったデータをエンコードして頭に受け取った時刻をつけてる
             decoded_data.insert(0, now_time)
@@ -61,6 +61,10 @@ if __name__ == "__main__":
             decoded_file = open(decoded_data_path, 'a')
             decoded_file.write(decoded_data_str)
             decoded_file.close()
+            try:
+                print(decoded_data[2])
+            except:
+                pass
             print(decoded_data_str)
 
             print('---------------------------')
