@@ -1,4 +1,4 @@
-Class Orientation{
+class Orientation{
   float[] mag = new float[3];
   float[] acc = new float[3];
 
@@ -35,19 +35,18 @@ Class Orientation{
 
   float getPitch(){
     if(acc[1]*sin(getRoll()) + acc[2]*cos(getRoll()) == 0){
-      return acc[0] == 0 (PI/2) : (-PI/2);
+      return acc[0] == 0 ? (PI/2) : (-PI/2);
     }
     else{
         return atan(-acc[0] /
-            (acc[1] * sin(getRoll) + acc[2] * cos(getRoll())));
+            (acc[1] * sin(getRoll()) + acc[2] * cos(getRoll())));
     }
   }
 
   float getHeading(){
     return atan2(mag[2] * sin(getRoll()) - mag[1] * cos(getRoll()),
         mag[0] * cos(getPitch()) +
-        mag[1] * sin(getPitch() *  sin(getRoll()) +
-        mag[2] * sin(getPitch() * cos(getRoll()));
+        mag[1] * sin(getPitch()) *  sin(getRoll()) +
+        mag[2] * sin(getPitch()) * cos(getRoll()));
   }
 }
-
