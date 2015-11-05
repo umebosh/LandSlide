@@ -55,7 +55,7 @@ void serialRcv() {
   while (myPort.available () > 0) {
     String inBuffer = myPort.readString();
     if (inBuffer != null) {
-      println(inBuffer);
+//      println(inBuffer);
       String[] splitStr = split(inBuffer, ",");
       if (splitStr.length!=4) {
         continue;
